@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>text</title>
+</head>
+<body>
+<form action="{% url 'blog:write_action' %}" method="post">
+    {% csrf_token %}
+
+    <input type="hidden" name="article_id" value="{{ article.id |default:'0'}}"/>
+    <label>Title
+        <input type="text" name="title" value="{{ article.title }}"/></label>
+    <br/>
+    <label>Content
+        <input type="text" name="content" value="{{ article.content }}"/></label>
+    <br/>
+
+
+   <!-- <button type="button" class="btn btn-warning btn-circle">Commit</button>-->
+    <input type="submit" value="Commit">
+
+</form>
+</body>
+</html>
